@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  rutaBaseApi : 'http://localhost/api/genchildBack',
+  rutaBaseApi : 'https://genchild-back.onrender.com/api/genchildBack',
   nameRutaBase: 'apiRout',
   rutaRaiz: 'dashboard',
   imgDefault: '/assets/img/Genchild.jpg',
