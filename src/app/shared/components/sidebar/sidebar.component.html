@@ -1,0 +1,22 @@
+<div class="fixed flex flex-col top-14 left-0 w-14 hover:w-64 bg-blue-400 dark:bg-gray-900 h-full text-white transition-all duration-300 border-none z-50 sidebar">
+    <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
+        <ul class="flex flex-col py-4 space-y-1">
+            @for(menu of menus; track menu){
+            @if( menu.isVisible ){
+              <li>
+                  <a [routerLink]="menu.ruta" routerLinkActive="bg-blue-500" [routerLinkActiveOptions]="{exact:true}" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+                      <img class="ml-4" style="height: 20px; width: 20px;" [src]="'assets/icons/'+menu.icon">
+                      <span class="ml-2 text-sm tracking-wide truncate">{{menu.title}}</span>
+                  </a>
+              </li>
+            }
+          }
+          <li (click)="logaut()">
+              <span class="relative flex cursor-pointer flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+                  <img class="ml-4" style="height: 20px; width: 20px;" src="assets/icons/salir.svg">
+                  <span class="ml-2 text-sm tracking-wide truncate">Salir</span>
+              </span>
+          </li>
+        </ul>
+    </div>
+</div>

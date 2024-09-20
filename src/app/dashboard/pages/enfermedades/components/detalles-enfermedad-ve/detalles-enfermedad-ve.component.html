@@ -1,0 +1,53 @@
+<app-modal [isShow]="isShow">
+    <div class="w-full h-auto flex pt-8 items-center flex-col p-1 relative">
+        <div class="w-full flex gap-3 justify-center pb-2">
+            <h2 class="text-4xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-100 w-auto text-center">Detalles enfermedad</h2>
+            <button (click)="closed()" class="text-blue-400 hover:text-blue-500 focus:outline-none ms-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+          </button>
+        </div>
+        <div class="grid relative pb-11 md:grid-cols-2 xs:grid-cols-1 gap-3 lg:grid-cols-2 sm:grid-cols-1 w-full max-w-5xl p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md">
+            <table class="w-full border border-gray-300">
+                <tbody>
+                    <tr>
+                        <th class="text-xs font-medium text-gray-700 border-b border-r border-gray-300 dark:border-gray-700 py-1">Código</th>
+                        <td class="border-b border-gray-300 dark:border-gray-700 py-1 text-gray-800 dark:text-gray-50">{{enfermedad()?.codigo}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-xs font-medium text-gray-700 border-b border-r border-gray-300 dark:border-gray-700 py-1">Nombre</th>
+                        <td class="border-b border-gray-300 dark:border-gray-700 py-1 text-gray-800 dark:text-gray-50">{{enfermedad()?.nombre}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-xs font-medium text-gray-700 border-b border-r border-gray-300 dark:border-gray-700 py-1">Sinónimo</th>
+                        <td class="border-b border-gray-300 dark:border-gray-700 py-1 text-gray-800 dark:text-gray-50">{{enfermedad()?.sinonimo}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-xs font-medium text-gray-700 border-b border-r border-gray-300 dark:border-gray-700 py-1">Herencia</th>
+                        <td class="border-b border-gray-300 dark:border-gray-700 py-1 text-gray-800 dark:text-gray-50">{{enfermedad()?.herencia}}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-xs font-medium text-gray-700 border-b border-r border-gray-300 dark:border-gray-700 py-1">Características Clínicas</th>
+                        <td class="border-b border-gray-300 dark:border-gray-700 py-1 text-gray-800 dark:text-gray-50">{{enfermedad()?.caracteristicaId}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="flex flex-col gap-3 ">
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-2 shadow-md">
+                    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-100 mb-1">Evolución</h3>
+                    <p class="text-gray-800 dark:text-gray-50 text-sm">{{enfermedad()?.evolucion}}</p>
+                </div>
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-2 shadow-md">
+                    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-100 mb-1">Exámenes Clínicos y Utilidad Diagnóstica</h3>
+                    <p class="text-gray-800 dark:text-gray-50 text-sm">{{enfermedad()?.examenes_clinicos_utilidad_diagnostica}}</p>
+                </div>
+                <div class="bg-white dark:bg-gray-700 rounded-lg p2 shadow-md">
+                    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-100 mb-1">Bibliografía</h3>
+                    <p class="text-gray-800 dark:text-gray-50 text-sm">{{enfermedad()?.bibliografia}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</app-modal>

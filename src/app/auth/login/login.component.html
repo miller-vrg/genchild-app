@@ -1,0 +1,19 @@
+<div class="flex min-h-dvh flex-col justify-center items-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <img class="mx-auto h-36 w-36" src="/assets/img/Genchild.jpg" alt="Genchild">
+            <h2 class="mt-2 mb-4 text-center text-2xl font-bold leading-9 tracking-tight text-blue-400">
+                Bienvenido a Genchild
+            </h2>
+        </div>
+        <form class="flex flex-wrap gap-2" (submit)="login($event)">
+            <inputGroup class="w-full mb-2" label="Usuario: " [data]="user" name="userName" />
+            <inputGroup class="w-full mb-4" label="Contraseña: " type="password" [data]="user" name="password" />
+
+            <button type="submit" class="flex w-full justify-center rounded-md bg-blue-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400">
+          Iniciar sesión
+        </button>
+        </form>
+    </div>
+
+</div>

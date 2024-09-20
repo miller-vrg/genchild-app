@@ -1,0 +1,38 @@
+<div class="mt-4 mx-4">
+    <div class="w-full overflow-hidden rounded-lg shadow-xs">
+        <div class="w-full overflow-x-auto">
+            <div class="bg-white rounded flex items-center w-full p-2 shadow-sm border border-gray-200 mb-4">
+                <desplegable style="margin-left: 0.5rem;" name="opciones" [options]="options()" />
+                <button class="outline-none focus:outline-none" style="margin-left: 1rem;">
+              <svg class="w-5 text-gray-600 h-5 cursor-pointer" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+              </button>
+                <input (change)="search(refInput.value)" #refInput name="workToSearch" [(ngModel)]="workToSearch" placeholder="Buscar..." class="w-full pl-3 text-sm text-black outline-none focus:outline-none bg-transparent" />
+                <button (change)="search(refInput.value)" class="bg-blue-400 rounded shadow-lg text-white hover:scale-105 px-2 mx-2">Buscar</button>
+                <button (click)="limpiar(refInput)" class="bg-blue-400 rounded shadow-lg text-white hover:scale-105 px-2">Limpiar</button>
+            </div>
+            <table class="w-full">
+                <thead>
+                    <tr class="text-xs font-semibold tracking-wide text-white uppercase border-b dark:border-blue-400  bg-blue-500">
+                        @for(cabecera of cabecera(); track cabecera){
+                        <th *ngIf="cabecera.isShow" class="px-4 py-3 text-left">{{cabecera.nameCol}}</th>
+                        }
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                    @for( listData of listData(); track listData){
+                    <tr class="bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-700 dark:text-gray-400 cursor-pointer">
+
+                        @for( value of objectToList(listData); track value ; let i = $index){
+                        <td class="px-4 py-3" *ngIf="cabecera()[i].isShow">
+                            <p class="font-semibold">{{value}}</p>
+                        </td>
+                        }
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

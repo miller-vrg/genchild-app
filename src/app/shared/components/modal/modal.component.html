@@ -1,0 +1,7 @@
+@if(isShow()){
+<div [class]="'absolute inset-0 bg-gray-50 top-0 right-0  w-full h-full flex  justify-center items-start pt-16 ' + zindex()" [ngClass]=" { ' bg-opacity-75 ': opacidad() } " aria-labelledby="modal-title " role="dialog " aria-modal="true ">
+    <div class="flex justify-center items-center p-4 text-center sm:p-0 overflow-auto ">
+        <ng-content />
+    </div>
+</div>
+}

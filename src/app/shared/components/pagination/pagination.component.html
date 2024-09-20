@@ -1,0 +1,32 @@
+<div class="max-w-full md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl mx-auto">
+
+  <div class="flex justify-center">
+      <nav class="flex space-x-2" aria-label="Pagination">
+
+        <button [disabled]="!isPrev()"
+        class="bg-blue-400 cursor-pointer dark:bg-gray-100 text-white active:bg-blue-500 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        [ngClass]="{'cursor-no-drop': !isPrev()}"
+        (click)="prev()"
+        type="button">
+          Anterior
+        </button>
+        @for( page of pages() ; track page; let index = $index){
+            <button
+            class="relative inline-flex items-center px-3 py-1 text-sm font-medium text-gray-700 bg-white border border-white cursor-pointer leading-5 rounded-md transition duration-150 ease-in-out "
+            [style]=" ( actual() === page ) ? 'background:black; color: white;' : '' "
+            (click)="eventPage.emit(page)">
+              {{page}}
+            </button>
+          }
+
+          <button [disabled]="!isNext()"
+          class="bg-blue-400 cursor-pointer dark:bg-gray-100 text-white active:bg-blue-500 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          [ngClass]="{'cursor-no-drop': !isNext()}"
+          (click)="next()"
+          type="button">
+            Siguiente
+          </button>
+      </nav>
+  </div>
+
+</div>

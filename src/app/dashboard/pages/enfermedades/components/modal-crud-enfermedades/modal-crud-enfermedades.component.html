@@ -1,0 +1,47 @@
+<app-modal [ngClass]="{ 'showModal': showModal() }" [isShow]="showModal">
+    <caracteristicasVE [isShow]="isShowEmerCaracteristicas" [enfermedad]="enfermedad" [isLoadASociaciones]="true" />
+    <subir-archivo [show]="isShowSubirArchivo" (onFile)="onFile($event)" [rutaImg]="rutaImg" />
+
+    <div class="flex flex-wrap w-3/4 justify-center items-center overflow-auto">
+        <div class="flex w-full max-w-5xl px-6 gap-3 py-2 justify-between">
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-100 w-auto text-center">Agregar enfermedad</h2>
+            <button (click)="closed()" class="text-blue-400 hover:text-blue-500 focus:outline-none ms-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+          </button>
+        </div>
+        <div class="grid relative pb-11 md:grid-cols-2 xs:grid-cols-1 gap-3 lg:grid-cols-2 sm:grid-cols-1 w-full max-w-5xl p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md">
+
+            <div class="flex flex-col gap-4">
+                <inputGroup label="Número de enfermedad" class="w-full" name="codigo" [data]="enfermedad" />
+                <inputGroup label="Nombre" class="w-full" name="nombre" [data]="enfermedad" />
+                <inputGroup label="Sinónimo" class="w-full" name="sinonimo" [data]="enfermedad" />
+                <inputGroup label="Herencia" class="w-full" name="herencia" [data]="enfermedad" />
+                <desplegable label="Retardo mental " class="w-full " name="retardo_mental" [options]="options " [data]="enfermedad" />
+                <div class="grid md:grid-cols-2 xs:grid-cols-1 gap-3 lg:grid-cols-2 sm:grid-cols-1">
+                    <button type="button" (click)="openModal()" class="inline-flex justify-center w-full rounded-md border border-blue-400 bg-white text-black px-4 py-2 text-sm font-semibold hover:text-white shadow-sm hover:bg-blue-500 sm:w-auto  transition duration-300">
+                      Asociar características
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-3 ">
+                <textareaGroup maxHeig="100px " label="Evolución " class="w-full " name="evolucion" [data]="enfermedad " />
+                <textareaGroup maxHeig="100px " label="Examenes clinicos de utilidad diagnostica" class="w-full " name="examenes_clinicos_utilidad_diagnostica" [data]="enfermedad " />
+                <textareaGroup maxHeig="100px " label="Bibliografía " class="w-full " name="bibliografia" [data]="enfermedad " />
+            </div>
+            <div class="flex pb-1 ps-6 w-full absolute bottom-0 justify-start mt-5 ">
+                @if(enfermedad().id !== 0 ){
+                <button class="bg-blue-400 text-white px-14 py-1 rounded-lg hover:bg-blue-500 transition duration-300 " (click)="update()">
+                       Actualizar
+                  </button> }@else {
+                <button (click)="addEnfermedad()" class="bg-blue-400 text-white px-14 py-1 rounded-lg hover:bg-blue-500 transition duration-300 ">
+                        Guardar
+                  </button> }
+            </div>
+        </div>
+    </div>
+
+</app-modal>

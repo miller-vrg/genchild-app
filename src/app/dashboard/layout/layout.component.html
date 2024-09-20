@@ -1,0 +1,12 @@
+<main [ngClass]="{ 'dark': isDark() }">
+    <div class="min-h-screen flex relative flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
+        <app-header class="z-50" />
+        <app-sidebar/>
+        <div class="min-h-full p-1 ml-14 mt-14 mb-10">
+            <router-outlet/>
+        </div>
+        <footer class="w-full bg-blue-400 dark:bg-gray-900 fixed left-0 bottom-0 z-50">
+            <p class="p-1 text-center text-xs text-white">Copyright 2024 genchild todos los derechos reservados</p>
+        </footer>
+    </div>
+</main>

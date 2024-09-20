@@ -1,0 +1,54 @@
+<div class="flex justify-end">
+    <button (click)="open()" class="bg-blue-400 hover:scale-105 dark:bg-gray-100 text-white active:bg-blue-500 dark:text-gray-800 dark:active:text-gray-700 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+        type="button">
+      Agregar paciente
+  </button>
+</div>
+
+<table-accion
+[options]="opcions"
+[cabecera]="cabecera"
+[actual]="actual()"
+[meta]="meta()"
+[listData]="pacientes()"
+(onEdit)="onEdit($event)"
+(onDetails)="onDetails($event)"
+(onSeach)="onSeach($event)"
+[hasAccion]="[1,2]"
+(onReset)="onReset()"
+(eventPagination)="loandPagniation($event)"/>
+
+<app-modal [isShow]="showModal">
+    <div [ngClass]="{ 'showModal': showModal() }" *ngIf="showModal()" class="w-full h-auto flex pt-10 items-center flex-col p-1 relative">
+        <div class="w-full flex gap-3 justify-center pb-2">
+            <h2 class="text-4xl sm:text-3xl font-semibold text-gray-800 dark:text-gray-100 w-auto text-center">Agregar paciente</h2>
+            <button (click)="closed()" class="text-blue-400 hover:text-blue-500 focus:outline-none ms-6">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+</button>
+        </div>
+        <div class="flex flex-col w-full max-w-5xl p-6 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-md">
+            <div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-2">
+                <inputGroup label="Nombres " class="w-full" [data]="paciente" name="nombres" />
+                <inputGroup label="Apellidos " class="w-full" [data]="paciente" name="apellidos" />
+                <!--                 <inputGroup label="Email " class="w-full " [data]="paciente" name="email" /> -->
+                <desplegable label="Tipo de documento" [options]="options()" [value]="options()[0].value" class="w-full " [data]="paciente" name="idTipoDni" />
+                <inputGroup label="Número de identificación " class="w-full " [data]="paciente" name="dni" />
+                <inputGroup label="Edad " class="w-full " [data]="paciente" name="edad" />
+            </div>
+
+            <div class="flex w-auto gap-2 mt-2 ">
+                @if(paciente().id){
+                <button class="bg-blue-400 text-white px-14 py-1 rounded-lg hover:bg-blue-500 transition duration-300 w-full" (click)="update()">
+                     Actualizar cuenta de usuario
+                </button> }@else {
+                <button (click)="createPaciente()" class="bg-white border-blue-400 border text-blue-400 w-auto px-3 py-1 rounded-lg hover:text-white hover:bg-blue-500 transition duration-300 text-center ">
+                Crear paciente
+              </button> }
+            </div>
+        </div>
+
+    </div>
+</app-modal>
