@@ -103,6 +103,7 @@ export class EnfermedadesComponent implements OnInit {
   async changePage(numPage: number) {
     this.enfermedadService.page.update(dataOld => numPage);
     await this.loandEnfermedades();
+    this.meta.update( valueOld => ({...valueOld, page: numPage } as Meta))
   }
 
   async deleteEnfermedad(id: number | undefined) {
