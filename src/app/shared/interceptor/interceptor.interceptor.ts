@@ -1,4 +1,4 @@
-import { environment } from '@/environments/environment.development';
+import { environment } from '@/environments/environment';
 import { HttpErrorResponse, HttpEvent, HttpInterceptorFn, HttpResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { catchError, map, tap, throwError } from 'rxjs';
