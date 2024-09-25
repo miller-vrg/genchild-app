@@ -30,7 +30,6 @@ export class EnfermedadesComponent implements OnInit {
   private authService = inject(AuthenticationService);
   isAdmin = this.authService.isAdmin();
   showDetalles = signal<boolean>(false);
-  meta = signal<Meta | null>(null);
   pages: number[] = [];
   enfermedades = signal<IEnfermedad[]>([]);
   enfermerdadSelect = this.enfermedadService.data;
@@ -43,6 +42,15 @@ export class EnfermedadesComponent implements OnInit {
   opcions = filtros;
   filtroSearch = signal<{ filtroSearch: string }>({ filtroSearch: this.opcions[0].value });
   workToSearch: string = '';
+
+  meta = signal<Meta>({
+    page:            1,
+    take:            10,
+    itemCount:       10,
+    pageCount:       1,
+    hasNextPage:     false,
+    hasPreviousPage: false
+  });
 
   constructor() {
     effect(() => this.pages = Array.from({ length: this.meta()?.pageCount ?? 0 }).map((v, i) => i + 1));

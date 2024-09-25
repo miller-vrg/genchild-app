@@ -18,15 +18,11 @@ export class SearchComponent implements OnInit, OnChanges{
   onReset = output<void>();
   eventPagination=output<number>();
   meta = input<Meta>();
-  pages: number[] = [];
   onSeach = output<{ filtro: string, value: string}>();
   options = input<{value:string,name:string}[]>([]);
   filtro = signal<{filtro:string}>({filtro: this.options().shift()?.value as string});
   workToSearch: string = '';
 
-  constructor(){
-    effect( () => this.pages = Array.from({length: this.meta()?.pageCount ?? 0}).map( (v,i) => { return i+1}))
-}
   ngOnChanges(changes: SimpleChanges): void {
     if(this.endpoint.length) this.loandData();
   }

@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="w-full items-center flex justify-between p-1 pr-3">
-            <pagination [pages]="pages" [actual]="meta()?.page ?? 1" [pageCount]="meta()?.pageCount ?? 0" [isNext]="meta()?.hasNextPage ?? false" [isPrev]="meta()?.hasPreviousPage ?? false" (eventPage)="eventPagination.emit($event)" />
+            <pagination [meta]="meta()" (eventPage)="eventPagination.emit($event)" />
         </div>
     </div>
 </app-modal>

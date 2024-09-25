@@ -1,0 +1,3 @@
+.no-cursor{
+  @apply cursor-no-drop;
+}
