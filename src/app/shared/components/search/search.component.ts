@@ -32,7 +32,6 @@ export class SearchComponent implements OnInit, OnChanges{
   async loandData(){
       try{
         const { data, meta } = await lastValueFrom(this.http.get(this.endpoint)) as IPagination<any>;
-
         this.listData.update(dataOld => [...data]);
       }catch(e){
 

@@ -28,20 +28,20 @@
         <div class="grid relative pb-11 md:grid-cols-2 xs:grid-cols-1 gap-3 lg:grid-cols-2 sm:grid-cols-1 w-full p-6 ">
             <div class="flex flex-col gap-2 w-full ">
                 <div class="flex items-end w-full ">
-                    <inputGroup [disabled]="true " label="Nombres " class="w-full " [data]="pacienteView " name="nombres " />
+                    <inputGroup [disabled]="true " label="Nombres" class="w-full " [data]="pacienteView " name="nombres" />
                     <button type="button " (click)="verPaciente() " class="p-1 border rounded-lg mb-1 hover:scale-105 ">
-                <svg class="w-6 h-6 text-gray-500 dark:text-gray-300 " fill="none " stroke="currentColor " viewBox="0 0 24 24 " xmlns="http://www.w3.org/2000/svg ">
-                    <path stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " d="M21 21l-4.35-4.35M16.8 10.2a6.6 6.6 0 11-13.2 0 6.6 6.6 0 0113.2 0z "></path>
-                </svg>
-            </button>
+                        <svg class="w-6 h-6 text-gray-500 dark:text-gray-300 " fill="none " stroke="currentColor " viewBox="0 0 24 24 " xmlns="http://www.w3.org/2000/svg ">
+                            <path stroke-linecap="round " stroke-linejoin="round " stroke-width="2 " d="M21 21l-4.35-4.35M16.8 10.2a6.6 6.6 0 11-13.2 0 6.6 6.6 0 0113.2 0z "></path>
+                        </svg>
+                    </button>
                 </div>
-                <inputGroup [disabled]="true " label="Apellidos " class="w-full " [data]="pacienteView " name="apellidos " />
-                <inputGroup [disabled]="true " label="Edad " class="w-full " [data]="pacienteView " name="edad " />
+                <inputGroup [disabled]="true " label="Apellidos" class="w-full " [data]="pacienteView " name="apellidos" />
+                <inputGroup [disabled]="true " label="Edad" class="w-full " [data]="pacienteView" name="edad" />
             </div>
             <div class="flex flex-col gap-2 w-full ">
-                <inputGroup [disabled]="true " label="Email " class="w-full " [data]="pacienteView " name="email " />
-                <inputGroup [disabled]="true " label="Numero de identificación " class="w-full " [data]="pacienteView " name="tipoDni " />
-                <inputGroup [disabled]="true " label="Numero de identificación " class="w-full " [data]="pacienteView " name="dni " />
+               <!--  <inputGroup [disabled]="true " label="Email " class="w-full " [data]="pacienteView " name="email " /> -->
+                <inputGroup [disabled]="true " label="Tipo DNI" class="w-full " [data]="pacienteView " name="tipoDni" />
+                <inputGroup [disabled]="true " label="Numero de identificación " class="w-full " [data]="pacienteView " name="dni" />
             </div>
             <button type="button " (click)="openModal() " class="inline-flex justify-center w-full rounded-md border border-blue-400 bg-white text-black px-4 py-2 text-sm font-semibold hover:text-white shadow-sm hover:bg-blue-500 sm:w-auto transition
     duration-300 ">
@@ -60,4 +60,11 @@
 
 <modal-diagnostico [namePaciente]="namePaciente() " [codigoExamen]="codigoExamen() " [showDiagnostico]="showDiagnostico " />
 
-<app-search [showModal]="showPaciente " [options]="opcionsPaciente " [cabecera]="cabeceraPacienteView() " [endpoint]="endPoint() " (onDetails)="onDetailPaciente($event) " (onReset)="onResetSearchPaciente() " (onSeach)="onSeachPaciente($event)" />
+<app-search
+[showModal]="showPaciente "
+[options]="opcionsPaciente "
+[cabecera]="cabeceraPacienteView() "
+[endpoint]="endPoint() "
+(onDetails)="onDetailPaciente($event) "
+(onReset)="onResetSearchPaciente() "
+(onSeach)="onSeachPaciente($event)" />
