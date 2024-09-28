@@ -1,7 +1,7 @@
 import { environment } from '@/environments/environment.development';
 import { IPaciente, IPacienteEntity, IPacienteView, IPacienteViewEntity, IPagination } from '@/shared/types';
 import { toPacienteView } from '@/shared/utils/mapper';
-import { toPaciente } from '@/shared/utils/mapper/paciente.mappper';
+import { toPaciente, toPacienteEntity } from '@/shared/utils/mapper/paciente.mappper';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { Observable, map } from 'rxjs';
@@ -39,7 +39,7 @@ export class PacienteService {
   }
 
   update(id: string, paciente: IPaciente): Observable<IPaciente> {
-    return this.http.put<{ data: IPacienteEntity }>(`${environment.apiRout.pacientes}/${id}`, paciente)
+    return this.http.put<{ data: IPacienteEntity }>(`${environment.apiRout.pacientes}/${id}`, paciente )
       .pipe(map(({ data }) => toPaciente(data)));
   }
 }

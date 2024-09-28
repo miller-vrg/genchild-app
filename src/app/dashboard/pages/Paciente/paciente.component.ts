@@ -147,7 +147,7 @@ export class PacienteComponent implements OnInit {
   }
 
   onEdit( paciente: IPacienteView ) {
-   console.log({paciente})
+
    const pacienteToUpdate : IPaciente = {
     id: paciente.id,
      dni: paciente.dni,
@@ -162,6 +162,7 @@ export class PacienteComponent implements OnInit {
 
   async update(){
     const paciente = {...this.paciente()};
+    delete paciente.id;
     try{
       const pacienteNew = await lastValueFrom( this.pacienteService.update(this.paciente().id as string, paciente));
       this.paciente.update( pacienteOld => ({...pacienteNew}));
